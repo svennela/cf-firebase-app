@@ -13,7 +13,7 @@ import firebase from 'firebase';
   template: `<ion-nav [root]="rootPage"></ion-nav>`
 })
 export class MyApp {
-  rootPage: any;
+  rootPage: any = HomePage;
 
   constructor(platform: Platform) {
 
@@ -27,12 +27,9 @@ export class MyApp {
     firebase.initializeApp(config);
 
     firebase.auth().onAuthStateChanged( user => {
-      if (user) {
-        this.rootPage = HomePage;
-        console.log("There's a logged in user!", this.rootPage);
-      } else {
+      if (!user) {
         this.rootPage = LoginPage;
-        console.log("There is not a logged in user!", this.rootPage);
+        console.log("There's not a logged in user!");
       }
     });
 
