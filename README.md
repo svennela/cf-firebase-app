@@ -11,3 +11,6 @@ This is an email auth starter using Firebase's JS SDK.
 * Install all the npm packages: `npm install`.
 
 * Start coding and have fun!
+
+
+There's a complete tutorial for it in [my free email course](https://javebratt.com/become-developer/).
