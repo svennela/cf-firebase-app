@@ -15,15 +15,11 @@ import { EmailValidator } from '../../validators/email';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  public loginForm;
-  emailChanged: boolean = false;
-  passwordChanged: boolean = false;
-  submitAttempt: boolean = false;
+  loginForm;
   loading: any;
 
-  constructor(public nav: NavController, public authData: AuthData, 
-    public formBuilder: FormBuilder, public alertCtrl: AlertController, 
-    public loadingCtrl: LoadingController) {
+  constructor(public nav: NavController, public authData: AuthData, public formBuilder: FormBuilder, 
+    public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
 
     this.loginForm = formBuilder.group({
       email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
@@ -31,15 +27,7 @@ export class LoginPage {
     });
   }
 
-  elementChanged(input){
-    let field = input.inputControl.name;
-    this[field + "Changed"] = true;
-  }
-
   loginUser(){
-
-    this.submitAttempt = true;
-
     if (!this.loginForm.valid){
       console.log(this.loginForm.value);
     } else {

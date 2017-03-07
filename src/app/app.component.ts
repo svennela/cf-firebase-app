@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
@@ -10,12 +10,14 @@ import firebase from 'firebase';
 
 
 @Component({
-  template: `<ion-nav [root]="rootPage"></ion-nav>`
+  template: 'app.html'
 })
 export class MyApp {
   rootPage: any = HomePage;
+  zone: NgZone;
 
   constructor(platform: Platform) {
+    this.zone = new NgZone({});
 
     const config = {
       apiKey: "AIzaSyALKfevapBOYK202f6k5mPPfMrT1MHDv5A",
@@ -27,10 +29,9 @@ export class MyApp {
     firebase.initializeApp(config);
 
     firebase.auth().onAuthStateChanged( user => {
-      if (!user) {
-        this.rootPage = LoginPage;
-        console.log("There's not a logged in user!");
-      }
+      this.zone.run( () => {
+        if (!user) { this.rootPage = LoginPage; }
+      });     
     });
 
     platform.ready().then(() => {

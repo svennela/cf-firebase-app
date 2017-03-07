@@ -9,10 +9,7 @@ import { EmailValidator } from '../../validators/email';
   templateUrl: 'reset-password.html',
 })
 export class ResetPasswordPage {
-  public resetPasswordForm;
-  emailChanged: boolean = false;
-  passwordChanged: boolean = false;
-  submitAttempt: boolean = false;
+  resetPasswordForm: any;
 
 
   constructor(public authData: AuthData, public formBuilder: FormBuilder, public nav: NavController,
@@ -23,23 +20,7 @@ export class ResetPasswordPage {
     })
   }
 
-  /**
-   * Receives an input field and sets the corresponding fieldChanged property to 'true' to help with the styles.
-   */
-  elementChanged(input){
-    let field = input.inputControl.name;
-    this[field + "Changed"] = true;
-  }
-
-  /**
-   * If the form is valid it will call the AuthData service to reset the user's password displaying a loading
-   *  component while the user waits.
-   *
-   * If the form is invalid it will just log the form value, feel free to handle that as you like.
-   */
   resetPassword(){
-
-    this.submitAttempt = true;
 
     if (!this.resetPasswordForm.valid){
       console.log(this.resetPasswordForm.value);

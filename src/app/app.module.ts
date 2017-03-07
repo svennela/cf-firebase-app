@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
+import { NgModule, ErrorHandler } from '@angular/core';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 // Import Pages
@@ -16,8 +16,8 @@ import { AuthData } from '../providers/auth-data';
     MyApp,
     HomePage,
     LoginPage,
-    SignupPage,
-    ResetPasswordPage
+    ResetPasswordPage,
+    SignupPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -27,10 +27,11 @@ import { AuthData } from '../providers/auth-data';
     MyApp,
     HomePage,
     LoginPage,
-    SignupPage,
-    ResetPasswordPage    
+    ResetPasswordPage,
+    SignupPage
   ],
   providers: [
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthData
   ]
 })
