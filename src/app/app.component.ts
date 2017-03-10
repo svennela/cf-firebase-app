@@ -1,6 +1,7 @@
 import { Component, NgZone } from '@angular/core';
 import { Platform } from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
+import { StatusBar } from '@ionic-native/statusbar';
+import { Splashscreen } from '@ionic-native/splashscreen';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
@@ -10,10 +11,10 @@ import firebase from 'firebase';
 
 
 @Component({
-  template: 'app.html'
+  templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = HomePage;
+  rootPage: any
   zone: NgZone;
 
   constructor(platform: Platform) {
@@ -30,7 +31,11 @@ export class MyApp {
 
     firebase.auth().onAuthStateChanged( user => {
       this.zone.run( () => {
-        if (!user) { this.rootPage = LoginPage; }
+        if (!user) { 
+          this.rootPage = LoginPage; 
+        } else {
+          this.rootPage = HomePage;
+        }
       });     
     });
 
