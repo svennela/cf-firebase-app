@@ -5,7 +5,7 @@ import { Splashscreen } from '@ionic-native/splashscreen';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-
+import { SignupPage } from '../pages/signup/signup';
 
 import firebase from 'firebase';
 
@@ -21,22 +21,23 @@ export class MyApp {
     this.zone = new NgZone({});
 
     const config = {
-      apiKey: "AIzaSyALKfevapBOYK202f6k5mPPfMrT1MHDv5A",
-      authDomain: "bill-tracker-e5746.firebaseapp.com",
-      databaseURL: "https://bill-tracker-e5746.firebaseio.com",
-      storageBucket: "bill-tracker-e5746.appspot.com",
-      messagingSenderId: "508248799540"
+      apiKey: "AIzaSyB4WDmccjH8OpqaY6Bx3RAmWRXqFD-UjTM",
+      authDomain: "cloudfoundry.firebaseapp.com",
+      databaseURL: "https://cloudfoundry.firebaseio.com",
+      storageBucket: "firebase-cloudfoundry.appspot.com",
+      messagingSenderId: "667814353863"
     };
+
     firebase.initializeApp(config);
 
     firebase.auth().onAuthStateChanged( user => {
       this.zone.run( () => {
-        if (!user) { 
-          this.rootPage = LoginPage; 
+        if (!user) {
+          this.rootPage = SignupPage;
         } else {
-          this.rootPage = HomePage;
+          this.rootPage = SignupPage;
         }
-      });     
+      });
     });
 
     platform.ready().then(() => {

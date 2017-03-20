@@ -18,6 +18,17 @@ export class AuthData {
     });
   }
 
+  createUser(fullname: string, email: string,message: string): firebase.Promise<any> {
+    return  firebase.database().ref('/cfuser').push({
+          fullname: fullname,
+          email: email,
+          message: message,
+          status: 'pending'
+
+      });
+
+  }
+
   resetPassword(email: string): firebase.Promise<any> {
     return firebase.auth().sendPasswordResetEmail(email);
   }
