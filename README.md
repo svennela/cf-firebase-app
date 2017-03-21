@@ -13,3 +13,5 @@ This is an Creating User Example using Firebase's JS SDK.
 * Install Ionic (https://ionicframework.com/getting-started/)
 
 * ionic serve
+
+![Alt text](/CreateUser.png?raw=true "Create User Page")
