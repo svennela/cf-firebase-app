@@ -10,4 +10,6 @@ This is an Creating User Example using Firebase's JS SDK.
 
 * Install all the npm packages: `npm install`.
 
-* Start coding and have fun!
+* Install Ionic (https://ionicframework.com/getting-started/)
+
+* ionic serve
