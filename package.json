@@ -31,6 +31,8 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "1.1.0",
+    "@ionic/cli-plugin-ionic-angular": "1.4.1",
+    "ionic": "3.6.0",
     "typescript": "2.0.9"
   },
   "description": "email-auth-firebase-sdk: An Ionic project",

@@ -23,7 +23,8 @@ export class AuthData {
           fullname: fullname,
           email: email,
           message: message,
-          status: 'pending'
+          status: 'pending',
+          dbid: 0
 
       });
 

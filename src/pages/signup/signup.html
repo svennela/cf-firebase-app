@@ -1,13 +1,18 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      CREATE USER TO RECEIVE EMAIL
+        NEW USER FORM
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding class="signup">
+  <ion-list-header>
+    <b>
+      CF APP will send email and store user in MySQL
+    </b>
+  </ion-list-header>
 
   <form [formGroup]="signupForm" (submit)="createUser()" novalidate>
 
@@ -27,7 +32,7 @@
     </ion-item>
 
   <button ion-button block type="submit">
-    Create an User 
+    Create an User
   </button>
 
   </form>
